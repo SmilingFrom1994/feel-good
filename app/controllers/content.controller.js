@@ -19,13 +19,14 @@ console.log(req.body);
     return;
   }
 
+
 // Create a Tutorial
   const contents = {
     content: req.body.content,
     categories_id: req.body.categories_id,
     is_approved: "NO",
-    picture_location:req.body.picture_location
-
+    picture_location:req.body.picture_location,
+    users_id: req.body.users_id
   };
 
   // Save Tutorial in the database

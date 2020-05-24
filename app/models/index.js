@@ -21,11 +21,15 @@ db.sequelize = sequelize;
 
 db.categories = require("./categories.model.js")(sequelize, Sequelize);
 db.content = require("./content.model.js")(sequelize, Sequelize);
-
+db.users = require("./users.model.js")(sequelize, Sequelize);
 
 db.content.belongsTo(db.categories, {
-   foreignKey: "categories_id",   
+   foreignKey: "categories_id",
 });
 
-  
+db.content.belongsTo(db.users, {
+  foreignKey: "users_id",
+});
+
+
 module.exports = db;
