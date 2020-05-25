@@ -47,18 +47,22 @@ console.log(req.body);
 
 exports.findAll = (req, res) => {
   const categories_id = req.query.categories_id;
-  var condition = categories_id ? { categories_id: { [Op.like]: `%${categories_id}%` } } : null;
+  var condition = categories_id ? { id: { [Op.like]: `%${categories_id}%` } } : null;
+  var cond = categories_id ? { categories_id: { [Op.like]: `%${categories_id}%` } } : null;
 
-  Contents.findAll({ where: condition })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving categories."
-      });
+  Contents.findAll({
+    where: cond,
+    include: [{
+      model: db.categories,
+    }]
+  }).then(data => {
+    res.send(data);
+  }).catch(err => {
+    res.status(500).send({
+      message:
+        err.message || "Some error occurred while retrieving categories."
     });
+  });
 };
 
 
