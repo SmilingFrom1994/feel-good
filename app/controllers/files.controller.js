@@ -1,17 +1,17 @@
 exports.upload_one = function(req, res)  {
     try {
-      console.log("HIT");
         if(!req.files) {
+            console.log("I am inside if");
             res.send({
                 status: false,
                 message: 'No file uploaded'
             });
         } else {
             //Use the name of the input field (i.e. "avatar") to retrieve the uploaded file
-            let avatar = req.files.avatar;
+            let avatar = req.files.file;
 
             //Use the mv() method to place the file in upload directory (i.e. "uploads")
-            avatar.mv('./uploads/' + avatar.name);
+            avatar.mv('./uploads/' +Date.now()+ avatar.name);
 
             //send response
             res.send({
