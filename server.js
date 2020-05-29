@@ -4,6 +4,7 @@ const cors = require("cors");
 const fileUpload = require('express-fileupload');
 const morgan = require('morgan');
 const _ = require('lodash');
+const path = require("path");
 
 
 
@@ -11,7 +12,7 @@ const _ = require('lodash');
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:4200"
 };
 app.use(fileUpload({
     createParentPath: true
@@ -37,6 +38,11 @@ db.sequelize.sync({ force: true }).then(() => {
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Hope application." });
+});
+
+app.get("/data-image/:filename", (req, res, filename) => {
+  // res.json({ dir_path:  path.join(__dirname, "./uploads/"+filename)});
+  res.sendFile(path.join(__dirname, "./uploads/"+req.params.filename));
 });
 require("./app/routes/categories.routes")(app);
 require("./app/routes/content.routes")(app);
