@@ -1,6 +1,7 @@
 module.exports = app => {
   const users = require("../controllers/users.controller.js");
 
+
   var router = require("express").Router();
 
   // Create a new Category
@@ -8,6 +9,7 @@ module.exports = app => {
 
   // Retrieve all Categories
   router.get("/", users.findAll);
+
 
   // Retrieve a single Category with id
   router.get("/:id", users.findOne);

@@ -21,6 +21,7 @@ console.log(req.body);
 
 
 // Create a Tutorial
+
   const contents = {
     content: req.body.content,
     categories_id: req.body.categories_id,
@@ -30,6 +31,7 @@ console.log(req.body);
   };
 
   // Save Tutorial in the database
+  console.log("in controller "+contents);
   Contents.create(contents)
     .then(data => {
       res.send(data);

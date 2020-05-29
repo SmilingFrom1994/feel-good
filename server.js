@@ -33,6 +33,7 @@ db.sequelize.sync({ force: true }).then(() => {
 });
 
 
+
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Hope application." });
@@ -41,9 +42,13 @@ require("./app/routes/categories.routes")(app);
 require("./app/routes/content.routes")(app);
 require("./app/routes/users.routes")(app);
 require("./app/routes/fileupload.routes")(app);
+require("./app/routes/autoContent.routes")(app);
 
 // set port, listen for requests
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
+
+
 });
