@@ -1,0 +1,70 @@
+<div class="latest-products">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-heading">
+					<h2>Latest Quotes</h2>
+				</div>
+			</div>
+			<div class="col-md-4">
+					<div class="product-item">
+					  <a href="#"><img src="assets/images/product_02.jpg" alt=""></a>
+					  <div class="down-content">
+						<a href="#"><h4>Category: </h4></a>
+						<h6>News</h6>
+						<a href="#"><h4>Published Date: <p>16/05/2020</p></h4></a>
+						<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+						
+					  </div>
+					</div>
+				  </div>
+				  <div class="col-md-4">
+						<div class="product-item">
+						  <a href="#"><img src="assets/images/product_04.jpg" alt=""></a>
+						  <div class="down-content">
+							<a href="#"><h4>Category: </h4></a>
+							<h6>Fun</h6>
+							<a href="#"><h4>Published Date: <p>16/05/2020</p></h4></a>
+							<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+							
+						  </div>
+						</div>
+					  </div>
+					  <div class="col-md-4">
+							<div class="product-item">
+							  <a href="#"><img src="assets/images/product_03.jpg" alt=""></a>
+							  <div class="down-content">
+								<a href="#"><h4>Category: </h4></a>
+								<h6>Personal</h6>
+								<a href="#"><h4>Published Date: <p>16/05/2020</p></h4></a>
+								<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+								
+							  </div>
+							</div>
+						  </div>
+		</div>
+	</div>
+</div>
+<div class="best-features">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-heading">
+					<h2>{{category.title}}</h2>
+				</div>
+			</div>
+			<div class="col-md-4" *ngFor="let content of contents">
+				<div class="product-item">
+					<a href="#"><img src="assets/images/{{content.picture_location}}" alt=""></a>
+					<div class="down-content">
+						<a href="#"><h4>Published Date: </h4></a>
+						<h6>{{content.createdAt | date: 'dd/MM/yyyy' }}</h6>
+							
+						<p>{{content.content}}</p>
+							
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>

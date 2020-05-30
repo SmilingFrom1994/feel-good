@@ -1,0 +1,65 @@
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Add New Quote</h2>
+                </div>
+            </div>
+        </div>
+        <form #contentForm="ngForm" (ngSubmit)="postContent(contentForm)" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-12">        
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select class="form-control" name="category" ngModel id="category" required>
+                                <option value="">--- Choose a category ---</option>
+                                <option *ngFor="let category of categories" [value]="category.id">
+                                    {{ category.title }}
+                                </option>  
+                            </select>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="quoteImage">Browse Image For your Quote</label>
+                            <input type="file" name="quoteImage" ngModel class="form-control-file" id="quoteImage" (change)="onFileChange($event)" >
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <div class="form-group"> 
+                            <textarea class="form-control" rows="5" placeholder="Write your quote here" name="content" ngModel></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="contentForm.value.category==1">
+                <div class="col-md-12" >
+                    <div class="col-md-12">
+                        <div class="form-group"> 
+                            <label for="sourceUrl">News Source URL</label>
+                            <input type="text" class="form-control" id="sourceUrl" name="sourceUrl" ngModel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-md-12" >
+                    <div class="col-md-12">
+                        <div class="form-group"> 
+                            <input type="submit" class="form-control btn-primary" value="Post">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
